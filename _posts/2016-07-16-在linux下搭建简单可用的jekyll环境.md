@@ -1,6 +1,6 @@
 ---
 layout: post
-title: To Learn How to build ourself blog hahaha
+title: 在Linux下搭建简单可用的JeKyll环境
 author: Author Name
 ---
 
