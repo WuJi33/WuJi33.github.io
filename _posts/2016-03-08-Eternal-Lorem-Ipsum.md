@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Eternal Lorem Ipsum Placeholder Text Here
+title: To Learn How to build ourself blog hahaha
 author: Author Name
 ---
 
