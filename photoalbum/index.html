@@ -1,0 +1,21 @@
+---
+tittle: WuJi33 Photo Album
+disqus: ordinary story
+layout: photos
+---
+
+{% for item in site.static_files %}
+  {% if item.extname contains "jpg" or item.extname contains "png" %}
+    {% if  item.path contains "/photoalbum/photos/"%}
+      <div class="imgcontainer">
+        <div class="imgpreview">
+          <img src="{{ site.baseurl }}{{ item.path }}"/>
+        </div>
+        <div class="imgdes">
+
+        </div>
+      </div>  
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
