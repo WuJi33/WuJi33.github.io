@@ -1,3 +1,6 @@
+//globle variable
+var lastTimeScrollTop;
+
 // Window Scroll
 var windowScroll = function () {
     $(window).scroll(function () {
@@ -33,3 +36,4 @@ var scrollCatelogEvent = function(){
             $('.site-header').removeClass('site-header-nav-scrolled');
         }
 }
+

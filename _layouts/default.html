@@ -33,7 +33,28 @@
         </h1>  
       </div>
     </div>
-    </div>
+    
     <div class="container-fluid maincontext">
+      {% assign index = 1 %}
+      {% for item in site.posts %}        
+        {% if index == 2 %}
+          <div class="imageswitch">
+
+          </div>
+        {% elsif index > 19 %}        
+          {% break %}
+        {% else %}
+          <div class="massblock">
+            <div class="previewtittle">
+              <p>{{ item.title }}</p>
+            </div>
+            <div class="excerpt">
+              <p>{{ item.excerpt}}</p>
+            </div>
+          </div>
+        {% endif %}      
+        {% assign index = index + 1 %}
+      {% endfor %}
+    </div>
   </body>
 </html>
