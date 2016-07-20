@@ -9,6 +9,7 @@ var windowScroll = function () {
         } else {
             $('.headerblock').removeClass('headerblock-scrolltop');
         }
+
     });
 };
 
@@ -17,13 +18,15 @@ $(document).ready(function() {
 });
 
 var scrollHeaderEvent = function(){
-    if ($(window).scrollTop() > 70) {
-            $('.site-header').addClass('site-header-nav-scrolled');
+    if ($(window).scrollTop() > 100) {
+            $('.headerblock').addClass('headerblock-scrolltop');
         } else {
-            $('.site-header').removeClass('site-header-nav-scrolled');
+            $('.headerblock').removeClass('headerblock-scrolltop');
         }
 }
+
 var scrollCatelogEvent = function(){
+    $(".CatelogBlock")
     if ($(window).scrollTop() > 70) {
             $('.site-header').addClass('site-header-nav-scrolled');
         } else {

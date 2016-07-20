@@ -45,7 +45,7 @@ div.preview img
 }
 
 
-/*home page stype*/
+/*home page style*/
 div.headerblock
 {
     margin-top: 50px;
@@ -90,6 +90,18 @@ div.headerinfo
     background-color: #4183c4;
     height: 300px;
 }
+div.welcome
+{
+    color: white;
+    font-size: 2.3rem;
+    margin-top: 130px;
+}
+div.welcome small
+{
+    color: lightseagreen;
+    font-size: 0.8em;
+    
+}
 
 
 div.headerblock-scrolltop
@@ -104,5 +116,23 @@ div.maincontext
 {
     min-height: 1100px;
 }
+div.catelog
+{
+    margin-top: 450px;
+    position: inherit;
+    min-width: 200px;
+    max-width: 300px;
+    min-height: 300px;
+    background-color: whitesmoke;
+}
 
 
+
+
+
+/*blog list page*/
+
+
+
+
+/*post page*/
