@@ -1,60 +1,75 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
 
-    {% include meta.html %}
+<head>
+  <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
 
-    <!--[if lt IE 9]>
+  {% include meta.html %}
+
+  <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    {% include links.html %}
-  </head>
+  {% include links.html %}
+</head>
 
-  <body>
-    <div class="container-fluid headerblock">
-      <div class="sitelogo">
-        <i class="sitelogo-img fa icon-github"></i>
-        <span>WuJi</span>
-      </div>
-      <nav class="navbar">
-        <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="" >Home</a>
-        <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="">Blog</a>
-        <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="">Photos</a>
-        <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="">About</a>
-      </nav>     
+<body>
+  <div class="container-fluid headerblock">
+    <div class="sitelogo">
+      <i class="sitelogo-img fa icon-github"></i>
+      <span>WuJi</span>
     </div>
-    <div class="container-fluid headerinfo">
-      <div class="welcome">
-        <h1>Hi, Welcome to my station.Here is WuJi.
-          <br/>
-          <small>We all have own sercrets.</small>
-        </h1>  
-      </div>
+    <nav class="navbar">
+      <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="">Home</a>
+      <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="">Blog</a>
+      <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="">Photos</a>
+      <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="">About</a>
+    </nav>
+  </div>
+  <div class="container-fluid headerinfo">
+    <div class="welcome">
+      <h1>Hi, Welcome to my station.Here is WuJi.
+        <br/>
+        <small>We all have own sercrets.</small>
+      </h1>
     </div>
-    
-    <div class="container-fluid maincontext">
-      {% assign index = 1 %}
-      {% for item in site.posts %}        
-        {% if index == 2 %}
-          <div class="imageswitch">
+  </div>
 
+  <div class="container-fluid maincontext">
+    {% assign index = 1 %} {% for item in site.posts %} {% if index == 2 %}
+    <div class="imageswitch">
+      <div id="myCarousel" class="carousel slide">
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators">
+          {% assign innerIndex = 1 %} {% for image in site.static_files %} {% if image.path contains "/photoalbum/photos/" %}
+          <li data-target="#myCarouse{{ innerIndex }}" data-slide-to="{{ innerIndex}}" class="active"></li>
+          {% assign innerIndex = innerIndex + 1 %} {% if innerIndex == 5 %} {% break %} {% endif %} {% endif %} {% endfor %}
+        </ol>
+
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+          {% for image in site.static_files %} {% if image.path contains "/photoalbum/photos/" %}
+          <div class="item active">
+            <img src="{{ site.baseurl}}{{image.path }}" alt="First slide">
           </div>
-        {% elsif index > 19 %}        
-          {% break %}
-        {% else %}
-          <div class="massblock">
-            <div class="previewtittle">
-              <p>{{ item.title }}</p>
-            </div>
-            <div class="excerpt">
-              <p>{{ item.excerpt}}</p>
-            </div>
-          </div>
-        {% endif %}      
-        {% assign index = index + 1 %}
-      {% endfor %}
+          {% assign innerIndex = innerIndex - 1 %} {% if innerIndex == 1 %} {% break %} {% endif %} {% endif %} {% endfor %}
+        </div>
+        <!-- 轮播（Carousel）导航 -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+      </div>
     </div>
-  </body>
+    {% elsif index > 19 %} {% break %} {% else %}
+    <div class="massblock">
+      <div class="previewtittle">
+        <p>{{ item.title }}</p>
+      </div>
+      <div class="excerpt">
+        <p>{{ item.excerpt}}</p>
+      </div>
+    </div>
+    {% endif %} {% assign index = index + 1 %} {% endfor %}
+  </div>
+</body>
+
 </html>
