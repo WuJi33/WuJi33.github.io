@@ -11,53 +11,25 @@ body
 {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-
-
-/*photos home stype*/
-div.imgcontainer
+*
 {
-     width: 150px;
-     height: 130px;
-     float: left;
-     margin-left: 10px;
-     margin-right: 10px;
-     margin-bottom: 20px;
-}
-div.imgcontainer div.imgdes
-{
-    background-color: lemonchiffon;
-    text-align: center;
-    vertical-align: middle;
-    height: 30px;
-    overflow: hidden;
+    text-align: inherit;
+    vertical-align: inherit;
+    color: inherit;
+    font-size: inherit;
 }
 
-div.imgpreview 
-{  
-  width:150px;
-  height: 100px;
-  overflow: hidden;
-}
-div.preview img
-{
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.padding-bottom
-{
-    padding-bottom: 30px;
-}
 
 
 /*home page style*/
-div.headerblock
+.headerblock
 {
     margin-top: 50px;
     position: fixed;    
     background-color: #4183c4;
     height: 70px;
     width: 100%;
+    z-index: 1000;
     box-shadow: 0 0 5px rgba(0,0,0,0.1);
  
 
@@ -66,44 +38,75 @@ div.headerblock
     transition: all 0.5s ease 0s;
    
 }
+
 .sitelogo
 {
     vertical-align: bottom;
     float: left;
     font-size: 5rem;
     color: whitesmoke;
-    margin-left: 30px;   
+    padding-left: 20px;   
     margin-bottom: -3px;
 }
-nav.navbar
+
+.navbar
 {        
     float: right;   
-    margin-top: 25px;
+    margin-top: 12px;
     margin-bottom: 3px;
 }
-a.nav-a
+.nav-a
 {
     font-size: 2.3rem;
     color: lightskyblue;
     margin-right: 20px;
 }
-a.nav-a:hover
+.nav-a:hover
 {
     color: white;
 }
-div.headerinfo
+.dropdownbtn
+{
+    font-size: 4rem;
+    color: white;
+    text-align: center;
+    vertical-align: middle;   
+}
+
+.dropdownbtn .glyphicon-tasks:hover
+{
+    cursor: pointer;
+}
+
+
+.smallmenu
+{
+    background-color: #4F94CD;
+    text-align: left;
+    font-size: 3rem;
+    margin-right: -12px;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+}
+.smallmenu div
+{
+    margin-bottom: 20px;
+}
+
+
+
+.headerinfo
 {
     background-color: #4183c4;
     height: 300px;
 }
-div.welcome
+.welcome
 {
     color: white;
     font-size: 2.3rem;
     margin-top: 130px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
 }
-div.welcome small
+.welcome small
 {
     color: lightseagreen;
     font-size: 0.8em;
@@ -111,15 +114,15 @@ div.welcome small
 }
 
 
-div.headerblock-scrolltop
+.headerblock-scrolltop
 {        
     margin-top: 0px;
     background-color: white;       
 }
 
-.headerblock-scrolltop i,
+.headerblock-scrolltop a,
 .headerblock-scrolltop span,
-.headerblock-scrolltop a
+.headerblock-scrolltop i
 {
     color: black;
 }
@@ -127,8 +130,12 @@ div.headerblock-scrolltop
 {
     color: dodgerblue;
 }
+.headerblock-scrolltop .smallmenu 
+{
+    background-color: white;
+}
 
-div.maincontext
+.maincontext
 {
     min-height: 1100px;
 }
@@ -146,7 +153,7 @@ div.maincontext
 
 
 /*post page*/
-div.catelog
+iv.catelog
 {
     margin-top: 450px;
     position: inherit;

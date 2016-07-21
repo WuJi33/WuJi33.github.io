@@ -37,3 +37,14 @@ var scrollCatelogEvent = function(){
         }
 }
 
+function dropdownmenu()
+{
+    if($("#dropdownmenu").is(":hidden"))
+    {
+        $("#dropdownmenu").show();
+    }
+    else
+    {
+        $("#dropdownmenu").hide();
+    }
+}
