@@ -7,6 +7,11 @@ code
 {
     background:#fee9cc;
 }
+body
+{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
 
 /*photos home stype*/
 div.imgcontainer
@@ -51,8 +56,10 @@ div.headerblock
     margin-top: 50px;
     position: fixed;    
     background-color: #4183c4;
+    height: 70px;
     width: 100%;
     box-shadow: 0 0 5px rgba(0,0,0,0.1);
+ 
 
     -webkit-transition: all 0.5s ease 0s;
     -moz-transition: all 0.5s ease 0s;
@@ -65,19 +72,18 @@ div.headerblock
     float: left;
     font-size: 5rem;
     color: whitesmoke;
-    margin-left: 30px;
-    padding-top: 8px;
+    margin-left: 30px;   
     margin-bottom: -3px;
 }
 nav.navbar
 {        
     float: right;   
-    padding-top: 10px;
+    margin-top: 25px;
     margin-bottom: 3px;
 }
 a.nav-a
 {
-    font-size: 2.1rem;
+    font-size: 2.3rem;
     color: lightskyblue;
     margin-right: 20px;
 }
@@ -95,6 +101,7 @@ div.welcome
     color: white;
     font-size: 2.3rem;
     margin-top: 130px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
 }
 div.welcome small
 {
@@ -107,25 +114,28 @@ div.welcome small
 div.headerblock-scrolltop
 {        
     margin-top: 0px;
-    background-color: white;
-    color:black;
-    
+    background-color: white;       
+}
+
+.headerblock-scrolltop i,
+.headerblock-scrolltop span,
+.headerblock-scrolltop a
+{
+    color: black;
+}
+.headerblock-scrolltop a:hover
+{
+    color: dodgerblue;
 }
 
 div.maincontext
 {
     min-height: 1100px;
 }
-div.catelog
+.contextcolum
 {
-    margin-top: 450px;
-    position: inherit;
-    min-width: 200px;
-    max-width: 300px;
-    min-height: 300px;
-    background-color: whitesmoke;
+    min-height: 1100px;
 }
-
 
 
 
@@ -136,3 +146,12 @@ div.catelog
 
 
 /*post page*/
+div.catelog
+{
+    margin-top: 450px;
+    position: inherit;
+    min-width: 200px;
+    max-width: 300px;
+    min-height: 300px;
+    background-color: whitesmoke;
+}
