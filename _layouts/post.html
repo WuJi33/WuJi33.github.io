@@ -1,15 +1,20 @@
+--- 
+layout: default
 ---
-layout: blog
----
 
-<article class="post">
- <div class="space-extra-small">
- </div>
-
-  <div class="entry">
-    {{ content }}
-  </div>
-
- 
-</article>
-
+<div class="container post">
+    <div class="col-xs-1">
+    </div>
+    <div class="col-xs-10">
+        <div class="spaceline-low"></div>
+        <div class="post-title">
+            {{page.title}}
+        </div>
+        <div class="post-date">Create on: {{page.date | date: "%b %d, %Y"}}</div>
+        <div class="spaceline-high"></div>
+        <div class="post-content">
+            {{content}}
+        </div>
+    </div>
+    <div class="col-xs-1"></div>
+</div>

@@ -1,9 +1,8 @@
 ---
 tittle: WuJi33 Photo Album
 disqus: ordinary story
-layout: photos
+layout: default
 ---
-
 {% for item in site.static_files %}
   {% if item.extname contains "jpg" or item.extname contains "png" %}
     {% if  item.path contains "/photoalbum/photos/"%}
@@ -12,7 +11,6 @@ layout: photos
           <img src="{{ site.baseurl }}{{ item.path }}"/>
         </div>
         <div class="imgdes">
-
         </div>
       </div>  
     {% endif %}

@@ -2,81 +2,72 @@
 <html>
 
 <head>
-  <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
 
-  {% include meta.html %}
+    {% include meta.html %}
 
-  <!--[if lt IE 9]>
+    <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-  {% include links.html %}
+    {% include links.html %}
 </head>
 
 <body>
-  <div class="container-fluid headerblock">
-    <div class="row">
-      <div class="col-md-3 col-xs-9 sitelogo">
-        <i class="fa icon-github sitelogo-img"></i>
-        <span>WuJi</span>
-      </div>
-      <div class="col-md-9 visible-md-inline visible-lg-inline navbar">
-        <nav class="navbar">
-          <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="">Home</a>
-          <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="">Blog</a>
-          <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="">Photos</a>
-          <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="">About</a>
-        </nav>
-      </div>
-      <div class="col-xs-3 visible-xs-inline visible-sm-inline dropdownbtn">
-        <i class="glyphicon glyphicon glyphicon-tasks" onclick="dropdownmenu()"></i>
-      </div>     
-    </div>
-    <div class="visible-xs-block visible-sm-block">
+    <div class="container-fluid headerblock">
+        <div class="row">
+            <div class="col-md-3 col-xs-9 sitelogo">
+                <i class="fa icon-github sitelogo-img"></i>
+                <span>WuJi</span>
+            </div>
+            <div class="col-md-9 visible-md-inline visible-lg-inline navbar">
+                <nav class="navbar">
+                    <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="{{ site.baseurl }}/">Home</a>
+                    <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="{{ site.baseurl }}/post">Blog</a>
+                    <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="{{ site.baseurl }}/photoalbum">Photos</a>
+                    <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="{{ site.baseurl }}/about">About</a>
+                </nav>
+            </div>
+            <div class="col-xs-3 visible-xs-inline visible-sm-inline dropdownbtn">
+                <i class="glyphicon glyphicon glyphicon-tasks hvr-grow-shadow" onclick="dropdownmenu()"></i>
+            </div>
+        </div>
+        <div class="visible-xs-block visible-sm-block">
 
-    <div class="row" id="dropdownmenu" hidden>
-      <div class="col-xs-10 smallmenu" style="opacity:0"></div>
-      <div class="col-xs-2 smallmenu">
-        <div>
-          <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="">Home</a>
+            <div class="row" id="dropdownmenu" hidden>
+                <div class="col-xs-10 smallmenu" style="opacity:0"></div>
+                <div class="col-xs-2 smallmenu">
+                    <div>
+                        <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="{{ site.baseurl }}/">Home</a>
+                    </div>
+                    <div>
+                        <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="{{ site.baseurl }}/post">Blog</a>
+                    </div>
+                    <div>
+                        <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="{{ site.baseurl }}/photoalbum">Photos</a>
+                    </div>
+                    <div>
+                        <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="{{ site.baseurl }}/about">About</a>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
-        <div>
-          <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="">Blog</a>
-        </div>
-        <div>
-           <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="">Photos</a>
-        </div>
-        <div>
-          <a class="nav-a hvr-grow-shadow hvr-underline-from-center" href="">About</a>
-        </div>
-      </div>
-      
-    </div>
 
     </div>
-    
-  </div>
-  <div class="container-fluid headerinfo">
-    <div class="welcome">
-      <span>Hi, Welcome to my station.Here is WuJi.
+    <div class="container-fluid headerinfo">
+        <div class="welcome">
+            <span>Hi, 欢迎来到wuji的私厨小站,很高兴与大家分享我的厨艺历程.
         <br/>
-        <small>We all have own sercrets.</small>
+        <small>PS:我的目标是开一家自己的面包房</small>
       </span>
+        </div>
     </div>
-  </div>
 
-  <div class="container-fluid maincontext">
-    <div class="row">
-      <div class="visible-lg-inline col-lg-2 contentcolum"></div>
-      <div class="col-md-9 col-lg-6 contextcolum postlist">
-
-      </div>
-      <div class="col-md-3 col-lg-2 contextcolum imagelist">
-
-      </div>
-      <div class="visible-lg-inline col-lg-2 contextcolum"></div>
+    <div class="container">
+      {{content}}
     </div>
-  </div>
 </body>
 
 </html>

@@ -17,6 +17,15 @@ body
     vertical-align: inherit;
     color: inherit;
     font-size: inherit;
+    font-family: SimHei,KaiTi,微软雅黑
+}
+.breakline {
+    margin-top: 20px;
+    margin-bottom: 12px;
+    border-top-style: double;
+    border-top-color: gray;
+    border-top-width: 2px;
+
 }
 
 
@@ -67,10 +76,11 @@ body
 }
 .dropdownbtn
 {
-    font-size: 4rem;
+    font-size: 3rem;
     color: white;
     text-align: center;
     vertical-align: middle;   
+    padding-top: 15px;
 }
 
 .dropdownbtn .glyphicon-tasks:hover
@@ -80,12 +90,16 @@ body
 
 
 .smallmenu
-{
-    background-color: #4F94CD;
+{      
+    background-color: #4183c4;
     text-align: left;
     font-size: 3rem;
     margin-right: -12px;
     box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+    width: 100%;
+    border-top-style: groove;
+    border-top-width: 1px;
+    border-top-color:	#F5FFE8	;
 }
 .smallmenu div
 {
@@ -97,19 +111,19 @@ body
 .headerinfo
 {
     background-color: #4183c4;
-    height: 300px;
+    height: 220px;
 }
 .welcome
 {
     color: white;
-    font-size: 2.3rem;
+    font-size: 2.1rem;
     margin-top: 130px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
 }
 .welcome small
 {
-    color: lightseagreen;
-    font-size: 0.8em;
+    color: #4183c4;
+    font-size: 0.5em;
     
 }
 
@@ -161,4 +175,47 @@ iv.catelog
     max-width: 300px;
     min-height: 300px;
     background-color: whitesmoke;
+}
+.post-title {
+    font-family:微软雅黑;
+    font-size: 3.2rem;
+}
+.spaceline-high{
+    height: 30px;
+}
+.spaceline-low{
+    height: 15px;
+}
+.post-content{
+    font-family: 微软雅黑;
+    font-size: 1.5 rem;
+}
+.post-date{
+    font-size:1rem;
+    color: gray;
+}
+.home-posts{
+    width: 100%;
+}
+.home-post h1{
+    font-size: 2.5rem;
+    font-family: SimHei,KaiTi,微软雅黑
+}
+.home-post .laytop{
+    font-size: 2.0rem;
+    color: #F75000;
+}
+.home-post-excerpt{
+    font-size:1rem;
+    color: gray;
+}
+.home-post-brief{
+    font-size: 1.6rem;
+    color:#4F4F4F;
+    font-family: SimHei,KaiTi,微软雅黑
+}
+
+img{
+    width: 98%;
+    height: 98%;
 }

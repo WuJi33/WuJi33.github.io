@@ -6,7 +6,7 @@
 name: WuJi
 
 # Short bio or description (displayed in the header)
-description: Small Station
+description: 私厨小站
 
 
 #
@@ -79,3 +79,7 @@ exclude:
   - LICENSE
   - README.md
   - CNAME
+
+
+paginate: 10
+paginate_path: "/post/"
