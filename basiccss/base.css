@@ -227,7 +227,7 @@ iv.catelog {
     height: 100%;
 }
 
-.category .dough {
+/*.category img {
     -webkit-clip-path: ellipse(60% 40% at 50% 60%);
-    clip-path: ellipse(60% 40% at 50% 60%);
-}
+    clip-path: ellipse(60% 40% at 50% 60%)
+}*/

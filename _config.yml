@@ -81,5 +81,5 @@ exclude:
   - CNAME
 
 
-paginate: 10
-paginate_path: "/post/"
+#paginate: 10
+#paginate_path: "/post/"
