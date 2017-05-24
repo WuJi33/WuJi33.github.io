@@ -213,12 +213,12 @@ iv.catelog {
 }
 
 .category{
-    width:240px;
+    width:192px;
 }
 .category img{
     margin: 10px;
-    height: 200px;
-    width: 240px;
+    height: 160px;
+    width: 192px;
 }
 
 .category div {
