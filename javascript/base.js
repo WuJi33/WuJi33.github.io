@@ -1,6 +1,6 @@
 //globle variable
 var lastTimeScrollTop;
-
+var fromAddr="/";
 // Window Scroll
 var windowScroll = function () {
     $(window).scroll(function () {
@@ -18,7 +18,19 @@ var windowScroll = function () {
 
 $(document).ready(function() {
     windowScroll();
+    $(".glyphicon-arrow-up").each(function(){
+        $(this).click(scrollToTop);
+    })
+    $(".glyphicon-arrow-left").each(function(){
+        $(this).click(goBack);
+    })
 });
+var scrollToTop=function(){
+    $(window).scrollTop(0);
+}
+var goBack=function(){
+    document.location=fromAddr;
+}
 
 var scrollHeaderEvent = function(){
     if ($(window).scrollTop() > 100) {
@@ -36,6 +48,7 @@ var scrollCatelogEvent = function(){
             $('.site-header').removeClass('site-header-nav-scrolled');
         }
 }
+
 
 function dropdownmenu()
 {

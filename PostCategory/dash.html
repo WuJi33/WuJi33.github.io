@@ -1,0 +1,42 @@
+--- 
+layout: default
+---
+<div class="row"></div>
+<div class="row">
+    <div class='hidden-xs hidden-sm col-md-1'> </div>
+    <div class='col-md-9'>
+        <div class="home-posts">
+            {% for post in site.posts %} {% if post.category contains 'dash' %} {% if post.istop %}
+            <article class="home-post">
+                <h1><span class="laytop">【置顶】</span><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+                <div class="home-post-excerpt">
+                    Date:{{post.date | date: "%b %d, %Y"}} {{ post.excerpt }}
+                </div>
+                <div class="spaceline-low"></div>
+                <div class="home-post-brief">
+                    {{post.content | slice:0,200}}
+
+                </div>
+                <a href="{{ site.baseurl }}{{ post.url }}" class="button button-primary read-more">Read More</a>
+            </article>
+            <div class="breakline"></div>
+            {% endif%}{% endif%} {% endfor %}
+        </div>
+        <div class="home-posts">
+            {% for post in site.posts %} {% if post.category contains 'dash' %} {% if post.istop %} {% else %}
+            <article class="home-post">
+                <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+                <div class="home-post-excerpt">
+                    Date:{{post.date | date: "%b %d, %Y"}} {{ post.excerpt }}
+                </div>
+                <div class="spaceline-low"></div>
+                <div class="home-post-brief">
+                    {{post.content | slice:0,200}}
+                </div>
+                <a href="{{ site.baseurl }}{{ post.url }}" class="button button-primary read-more">Read More</a>
+            </article>
+            <div class="breakline"></div>
+            {% endif%}{% endif%} {% endfor %}
+        </div>
+    </div>
+</div>

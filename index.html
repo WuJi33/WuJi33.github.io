@@ -9,7 +9,7 @@ layout: default
 
         </div>
     </div>
-    <div class="col-xs-12 col-md-6 col-xs-push-2">
+    <div class="col-md-8">
         <div class="home-posts">
             {% for post in site.posts %} {% if post.istop %}
             <article class="home-post">
@@ -44,17 +44,17 @@ layout: default
             {% endif%} {% endfor %}
         </div>
     </div>
-    <div class="hidden-xs hidden-sm col-md-1"></div>
-    <div class="col-md-4 col-xs-push-1">
+    <div class="hidden-xs hidden-sm col-md-1 "></div>
+    <div class="col-md-3" >
         <div class="col-md-12 col-xs-6 col-sm-6">
-            <div class="category">
-                <img class="" src='/material/newdough.jpg' />
+            <div class="category " onclick="document.location='http://www.baidu.com';">
+                <img class=" hvr-grow-shadow" src='/material/newdough.jpg' />
                 <div>Base dash</div>
             </div>
         </div>        
         <div class="col-md-12 col-xs-6 col-sm-6">
-            <div class="category">
-                <img class="" src='/material/newpizza.jpg' />
+            <div class="category" onclick="document.location='/PostCategory/pizza';">
+                <img class=" hvr-grow-shadow" src='/material/newpizza.jpg' />
                 <div>Homemade Pizza</div>
             </div>
         </div>        

@@ -17,7 +17,7 @@ body {
     vertical-align: inherit;
     color: inherit;
     font-size: inherit;
-    font-family: SimHei, KaiTi, 微软雅黑
+    font-family: arial,SimHei, KaiTi, 微软雅黑
 }
 
 .breakline {
@@ -27,7 +27,29 @@ body {
     border-top-color: #F0F0F0;
     border-top-width: 2px;
 }
+.body{
+    min-height: 100%;
+}
+.container{
+    padding-left: 8px;
+    padding-right: 8px;
+}
 
+@media screen and (min-height:600px){
+    .content{
+        min-height: 300px;
+    }
+}
+@media screen and (min-height:900px){
+    .content{
+        min-height:600px;
+    }
+}
+@media screen and (min-height:1200px){
+    .content{
+        min-height: 1000px;
+    }
+}
 
 /*home page style*/
 
@@ -157,7 +179,7 @@ iv.catelog {
 }
 
 .post-title {
-    font-family: 微软雅黑;
+    font-family: arial,微软雅黑;
     font-size: 3.2rem;
 }
 
@@ -170,7 +192,7 @@ iv.catelog {
 }
 
 .post-content {
-    font-family: 微软雅黑;
+    font-family: arial,微软雅黑;
     font-size: 1.5 rem;
 }
 
@@ -185,7 +207,7 @@ iv.catelog {
 
 .home-post h1 {
     font-size: 2.5rem;
-    font-family: SimHei, KaiTi, 微软雅黑;
+    font-family:arial, SimHei, KaiTi, 微软雅黑;
 }
 
 .home-post .laytop {
@@ -207,6 +229,12 @@ iv.catelog {
     color: #4F4F4F;
     font-family: SimHei, KaiTi, 微软雅黑
 }
+.home-footer div{
+    font-size: 1rem;
+    text-align: center;
+    color:#A1A1A1;
+    font-family: arial;    
+}
 
 .read-more {
     color: #5989b7
@@ -214,6 +242,10 @@ iv.catelog {
 
 .category{
     width:192px;
+}
+.category:hover{
+    cursor: pointer;
+
 }
 .category img{
     margin: 10px;
@@ -229,7 +261,33 @@ iv.catelog {
 .category img {
     height: 100%;
 }
-
+.category-brief{
+    z-index: 100000;
+    padding-top: 10px;
+    font-size: 2rem;
+    color: gray;
+    text-align: left;
+}
+.tools{
+    z-index: 100000; 
+    position: fixed;   
+    left:2%;  
+    top:80%;
+    width: 3rem;  
+    padding-top: 10px;
+    vertical-align: middle;
+    text-align: center;
+}
+.tools span{   
+   
+    margin-top: 5px;  
+    font-size: 3rem;
+    color:white;
+    background: #aaa
+}
+.tools span:hover{
+    background: #33CCFF;
+}
 /*.category img {
     -webkit-clip-path: ellipse(60% 40% at 50% 60%);
     clip-path: ellipse(60% 40% at 50% 60%)
