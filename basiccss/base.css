@@ -225,7 +225,7 @@ iv.catelog {
 }
 
 .home-post-brief {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     color: #4F4F4F;
     font-family: SimHei, KaiTi, 微软雅黑
 }
@@ -264,7 +264,7 @@ iv.catelog {
 .category-brief{
     z-index: 100000;
     padding-top: 10px;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: gray;
     text-align: left;
 }
