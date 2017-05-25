@@ -3,17 +3,29 @@ tittle: WuJi33 Photo Album
 disqus: ordinary story
 layout: default
 ---
-{% for item in site.static_files %}
-  {% if item.extname contains "jpg" or item.extname contains "png" %}
-    {% if  item.path contains "/photoalbum/photos/"%}
-      <div class="imgcontainer">
-        <div class="imgpreview">
-          <img src="{{ site.baseurl }}{{ item.path }}"/>
+<div class='row'>
+    <div class='hidden-xs hidden-sm col-md-1'></div>
+    <div class='col-xs-12 col-md-10'>
+    {% assign image_files = site.static_files | where: "image", true  %}
+    {% for imgfile in image_files | sort | reversed %}    
+        <div class="photos-imgcell" onclick="openImage(this)">
+            <div class="photos-img">
+                <img src="{{ site.baseurl }}{{ imgfile.path }}" />
+            </div>
+            <!--<div class="photos-imgdesc">
+                {{ imgfile.basename }}
+            </div>-->
         </div>
-        <div class="imgdes">
-        </div>
-      </div>  
-    {% endif %}
-  {% endif %}
-{% endfor %}
+    {% endfor %}    
+    </div>
+    <div class='hidden-xs hidden-sm col-md-1'></div>
+</div>
 
+
+<div class='photos-cover' hidden></div>
+<div class='photos-bigshow' onclick="$(this).hide();"hidden >
+    <img src="/photoalbum/photos/123.jpg"/>
+    <div class="photos-left"></div>
+    <div class="photos-right"></div>
+    <div class='photo-bottomdesc'></div>
+</div>

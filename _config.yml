@@ -83,3 +83,13 @@ exclude:
 
 #paginate: 10
 #paginate_path: "/post/"
+
+defaults:
+  - scope:
+      path: "photoalbum/photos"
+    values:
+      image: true
+  - scope:
+      path: "photoalbum/desc"
+    values:
+      imagedesc: true
