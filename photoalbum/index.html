@@ -10,7 +10,7 @@ layout: default
     {% for imgfile in image_files | sort | reversed %}    
         <div class="photos-imgcell" onclick="openImage(this)">
             <div class="photos-img">
-                <img src="{{ site.baseurl }}{{ imgfile.path }}" />
+                <img src="{{ site.baseurl }}{{ imgfile.path }}" name="{{ imgfile.basename }}"/>
             </div>
             <!--<div class="photos-imgdesc">
                 {{ imgfile.basename }}
@@ -25,7 +25,8 @@ layout: default
 <div class='photos-cover' onclick="closeImage();" hidden></div>
 <div class='photos-bigshow' onclick="closeImage();"hidden >
     <img src="/photoalbum/photos/123.jpg"/>
-    <div class="photos-left"></div>
-    <div class="photos-right"></div>
-    <div class='photo-bottomdesc'></div>
+    <div class="photos-left" onclick="changeImg(this,1)"></div>
+    <div class="photos-right" onclick="changeImg(this,3);"></div>
+    <div class='photo-bottomdesc'>
+    </div>
 </div>

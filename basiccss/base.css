@@ -1,5 +1,9 @@
 /*globle sytle*/
 
+html {
+    font-size: 10px;
+}
+
 a:hover {
     text-decoration: none;
 }
@@ -17,8 +21,7 @@ body {
     vertical-align: inherit;
     color: inherit;
     font-size: inherit;
-    font-family: arial,SimHei, KaiTi, 微软雅黑;
-   
+    font-family: arial, SimHei, KaiTi, 微软雅黑;
 }
 
 .breakline {
@@ -28,29 +31,34 @@ body {
     border-top-color: #F0F0F0;
     border-top-width: 2px;
 }
-.body{
+
+.body {
     min-height: 100%;
 }
-.container{
+
+.container {
     padding-left: 8px;
     padding-right: 8px;
 }
 
-@media screen and (min-height:600px){
-    .content{
+@media screen and (min-height:600px) {
+    .content {
         min-height: 300px;
     }
 }
-@media screen and (min-height:900px){
-    .content{
-        min-height:600px;
+
+@media screen and (min-height:900px) {
+    .content {
+        min-height: 600px;
     }
 }
-@media screen and (min-height:1200px){
-    .content{
+
+@media screen and (min-height:1200px) {
+    .content {
         min-height: 1000px;
     }
 }
+
 
 /*home page style*/
 
@@ -180,7 +188,7 @@ iv.catelog {
 }
 
 .post-title {
-    font-family: arial,微软雅黑;
+    font-family: arial, 微软雅黑;
     font-size: 3.2rem;
 }
 
@@ -193,7 +201,7 @@ iv.catelog {
 }
 
 .post-content {
-    font-family: arial,微软雅黑;
+    font-family: arial, 微软雅黑;
     font-size: 1.5 rem;
 }
 
@@ -208,7 +216,7 @@ iv.catelog {
 
 .home-post h1 {
     font-size: 2.5rem;
-    font-family:arial, SimHei, KaiTi, 微软雅黑;
+    font-family: arial, SimHei, KaiTi, 微软雅黑;
 }
 
 .home-post .laytop {
@@ -230,31 +238,34 @@ iv.catelog {
     color: #4F4F4F;
     font-family: SimHei, KaiTi, 微软雅黑
 }
-.home-footer div{
+
+.home-footer div {
     font-size: 1rem;
     text-align: center;
-    color:#A1A1A1;
-    font-family: arial;    
+    color: #A1A1A1;
+    font-family: arial;
 }
 
 .read-more {
     color: #5989b7
 }
 
-.category{
-    width:100%;
+.category {
+    width: 100%;
     max-width: 192px;
 }
-.category:hover{
-    cursor: pointer;
 
+.category:hover {
+    cursor: pointer;
 }
-@media screen and (min-width:992px){
-    .category img{
+
+@media screen and (min-width:992px) {
+    .category img {
         margin-left: 20px;
     }
 }
-.category img{
+
+.category img {
     margin-top: 10px;
     height: 100%;
     width: 100%;
@@ -265,112 +276,134 @@ iv.catelog {
     font-size: 2rem;
 }
 
-.category-brief{
+.category-brief {
     z-index: 100000;
     padding-top: 10px;
     font-size: 1.5rem;
     color: gray;
     text-align: left;
 }
-.tools{
-    z-index: 100000; 
-    position: fixed;   
-    left:2%;  
-    top:75%;
-    
-    width: 3rem;  
+
+.tools {
+    z-index: 100000;
+    position: fixed;
+    left: 2%;
+    top: 75%;
+    width: 3rem;
     padding-top: 10px;
     vertical-align: middle;
     text-align: center;
 }
-.tools span{   
-   
-    margin-top: 5px;  
+
+.tools span {
+    margin-top: 5px;
     font-size: 3rem;
-    color:white;
+    color: white;
     background: #BC8F8F;
 }
-.tools span:hover{
+
+.tools span:hover {
     background: #33CCFF;
 }
 
 .post-share {
     padding-left: 20px;
 }
-.post-comment{
 
-}
+.post-comment {}
 
-.photos-imgcell{  
-    margin:10px;  
+.photos-imgcell {
+    margin: 10px;
     float: left;
     height: 160px;
-    
 }
-.photos-imgcell div img{
-    
+
+.photos-imgcell div img {
     height: 150px;
-
 }
-@media (min-width:992px){
-    .photos-bigshow{
-        width: 900px;        
+
+@media (min-width:992px) {
+    .photos-bigshow {
+        width: 900px;
     }
 }
-@media(max-width:992px){
-    .photos-bigshow{
+
+@media(max-width:992px) {
+    .photos-bigshow {
         width: 100%;
-        left:0;
+        left: 0;
     }
 }
 
-.photos-cover{
+.photos-cover {
     z-index: 1000;
     position: fixed;
     width: 100%;
     height: 100%;
-    top:0;
+    top: 0;
     left: 0;
     background-color: black;
     opacity: 0.8;
 }
 
-.photos-bigshow{
+.photos-bigshow {
     z-index: 1000;
     position: fixed;
     vertical-align: bottom;
 }
-.photos-bigshow img{
+
+.photos-bigshow img {
     width: 100%;
 }
-.photo-bottomdesc:hover{
-    opacity: 0.8;
+
+.photo-bottomdesc:hover {
+    opacity: 0.7;
 }
-.photo-bottomdesc{
+
+.photo-bottomdesc {
+    vertical-align: middle;
+    opacity: 0;
     position: relative;
-    width:100%;
-    height: 50px;    
+    width: 100%;
+    height: 2rem;
+    font-size: 1.3rem;
+    background-color: whitesmoke;
+    color: black;
+    bottom: 2rem;
 }
-.photos-left:hover{
+
+.photos-left:hover {
     cursor: pointer;
 }
-.photos-right:hover{
+
+.photos-right:hover {
     cursor: pointer;
 }
-.photos-left{
-    position: relative;
-    width: 30%;
-    height: 100%;
-    top:0%;
-    left:0%;
+
+.photos-left:hover {
+    opacity: 0.3;
 }
 
-.photos-right{
-    position: relative;
-    width: 30%;
-    height: 100%;
-    top:0%;
-    right: 30%;
+.photos-right:hover {
+    opacity: 0.3;
 }
 
+.photos-left {
+    opacity: 0;
+    background-color: white;
+    position: absolute;
+    width: 20%;
+    top: 33%;
+    left: 0%;
+    height: 33%;
+}
 
+.photos-right {
+    opacity: 0;
+    background-color: white;
+    position: absolute;
+    width: 20%;
+    top: 33%;
+    right: 0%;
+    height: 33%;
+}
