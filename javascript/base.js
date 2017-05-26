@@ -162,7 +162,6 @@ var changeImg = function(tr, dir, e) {
         openImage(imgFilName);
     } else {
         $(".photos-bigshow").show();
-        alert("已经没有了！");
     }
     e = e || window.event;
     if (e.stopPropagation) { //W3C阻止冒泡方法  
