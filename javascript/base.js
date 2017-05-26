@@ -38,12 +38,12 @@ $(document).ready(function() {
 
 });
 var TouchEndDo = function(e) {
-    handEX = e.targetTouches[0].pageX;
-    handEY = e.targetTouches[0].pageY;
-    if(handEX-handSX>20 && Math.abs(handEY-handSY)<50){
+    handEX = e.changedTouches[0].pageX;
+    handEY = e.changedTouches[0].pageY;
+    if(handEX-handSX>50 && Math.abs(handEY-handSY)<150){
         $(".photos-left").click();
     }
-     if(handSX-handEX>20 && Math.abs(handEY-handSY)<50){
+     if(handSX-handEX>50 && Math.abs(handEY-handSY)<150){
         $(".photos-right").click();
     }
 };
