@@ -112,8 +112,7 @@ var resize = function() {
         $(".photos-bigshow").css("left", $(window).width() / 2 - $(".photos-bigshow").width() / 2);
     } else {
         $(".photos-bigshow").css("left", 0);
-    }
-   $(".photo-bottomdesc").css("bottom",$(".photo-bottomdesc").height());
+    }   
    $(".photos-left").css("font-size",$(".photos-left").height());
 }
 

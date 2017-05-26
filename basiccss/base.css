@@ -370,7 +370,7 @@ iv.catelog {
     font-size: 1.3rem;
     background-color: whitesmoke;
     color: black;
-    bottom: 0;
+    bottom: 1.5rem;
 }
 
 .photos-left:hover {
