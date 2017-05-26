@@ -13,19 +13,39 @@ $(document).ready(function() {
         $(this).click(goBack);
     })
 
-    $.getJSON("/photoalbum/imginfo.json", function(rs) {
-        photosInfoPos = rs;
-        photosInfoPos.sort(function(a, b) {
-            return a.basename > b.basename;
+    if ($(".photos-bigshow")) {
+        handSX = 0;
+        handSY = 0;
+        handEX = 0;
+        handEY = 0;
+        $(".photos-bigshow").on("touchstart", function(e) {
+            handSX = e.targetTouches[0].pageX;
+            handSY = e.targetTouches[0].pageY;
+        })
+        $.getJSON("/photoalbum/imginfo.json", function(rs) {
+            photosInfoPos = rs;
+            photosInfoPos.sort(function(a, b) {
+                return a.basename > b.basename;
+            });
+            photosInfoNag = photosInfoPos.concat([]);
+            photosInfoNag.reverse();
         });
-        photosInfoNag = photosInfoPos.concat([]);
-        photosInfoNag.reverse();
-    });
 
-    window.onresize = resize;
-    resize();
+        window.onresize = resize;
+        resize();
+    }
+
 });
-
+var TouchEndDo = function(e) {
+    handEX = e.targetTouches[0].pageX;
+    handEY = e.targetTouches[0].pageY;
+    if(handEX-handSX>20 && Math.abs(handEY-handSY)<50){
+        $(".photos-left").click();
+    }
+     if(handSX-handEX>20 && Math.abs(handEY-handSY)<50){
+        $(".photos-right").click();
+    }
+};
 // Window Scroll
 var windowScroll = function() {
     $(window).scroll(function() {
@@ -112,8 +132,8 @@ var resize = function() {
         $(".photos-bigshow").css("left", $(window).width() / 2 - $(".photos-bigshow").width() / 2);
     } else {
         $(".photos-bigshow").css("left", 0);
-    }   
-   $(".photos-left").css("font-size",$(".photos-left").height());
+    }
+    $(".photos-left").css("font-size", $(".photos-left").height());
 }
 
 var changeImg = function(tr, dir, e) {
