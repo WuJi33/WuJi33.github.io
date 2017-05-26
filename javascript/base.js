@@ -45,7 +45,7 @@ var scrollToTop = function() {
     $(window).scrollTop(0);
 }
 var goBack = function() {
-    document.location = fromAddr;
+    history.back();
 }
 
 var scrollHeaderEvent = function() {
@@ -113,9 +113,8 @@ var resize = function() {
     } else {
         $(".photos-bigshow").css("left", 0);
     }
-    // $(".photos-left").height($(".photos-bigshow").height() - $(".photo-bottomdesc").height());
-    // $(".photos-right").height($(".photos-bigshow").height() - $(".photo-bottomdesc").height());
-
+   $(".photo-bottomdesc").css("bottom",$(".photo-bottomdesc").height());
+   $(".photos-left").css("font-size",$(".photos-left").height());
 }
 
 var changeImg = function(tr, dir, e) {

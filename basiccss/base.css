@@ -287,7 +287,7 @@ iv.catelog {
 .tools {
     z-index: 100000;
     position: fixed;
-    left: 2%;
+    left: 1px;
     top: 75%;
     width: 3rem;
     padding-top: 10px;
@@ -365,11 +365,12 @@ iv.catelog {
     opacity: 0;
     position: relative;
     width: 100%;
-    height: 2rem;
+    height: auto;
+    min-height: 1.5rem;
     font-size: 1.3rem;
     background-color: whitesmoke;
     color: black;
-    bottom: 2rem;
+    bottom: 0;
 }
 
 .photos-left:hover {
@@ -390,7 +391,7 @@ iv.catelog {
 
 .photos-left {
     opacity: 0;
-    background-color: white;
+    
     position: absolute;
     width: 20%;
     top: 33%;
@@ -400,10 +401,21 @@ iv.catelog {
 
 .photos-right {
     opacity: 0;
-    background-color: white;
+    
     position: absolute;
     width: 20%;
     top: 33%;
     right: 0%;
     height: 33%;
+}
+.photos-left img{
+    float: left;
+    height: 100%;
+    width:auto;
+}
+
+.photos-right img{
+    float:right;
+   height: 100%;
+   width: auto;
 }
