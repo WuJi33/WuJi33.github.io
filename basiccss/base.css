@@ -373,14 +373,6 @@ iv.catelog {
     bottom: 2rem;
 }
 
-.photos-left:hover {
-    cursor: pointer;
-}
-
-.photos-right:hover {
-    cursor: pointer;
-}
-
 .photos-left {
     opacity: 0;
     position: absolute;
@@ -395,7 +387,7 @@ iv.catelog {
         opacity: 0.3;
         cursor: pointer;
     }
-    .photos-lefeTile {
+    .photos-left:hover {
         opacity: 0.3;
         cursor: pointer;
     }
@@ -404,11 +396,11 @@ iv.catelog {
 @media screen and (max-width:992) {
     .photos-right:hover {
         opacity: 0;
-        cursor:none;
+        cursor:default;
     }
     .photos-left:hover {
         opacity: 0;
-        cursor:none;
+        cursor:default;
     }
 }
 
