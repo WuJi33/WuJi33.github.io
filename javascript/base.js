@@ -21,7 +21,8 @@ $(document).ready(function() {
         $(".photos-bigshow").on("touchstart", function(e) {
             handSX = e.targetTouches[0].pageX;
             handSY = e.targetTouches[0].pageY;
-        })
+        });
+        $(".photos-bigshow").on("touchend",TouchEndDo);
         $.getJSON("/photoalbum/imginfo.json", function(rs) {
             photosInfoPos = rs;
             photosInfoPos.sort(function(a, b) {
