@@ -361,16 +361,16 @@ iv.catelog {
 }
 
 .photo-bottomdesc {
-    vertical-align: middle;
+    vertical-align: bottom;
     opacity: 0;
     position: relative;
     width: 100%;
     height: auto;
-    min-height: 1.5rem;
+    min-height: 2rem;
     font-size: 1.3rem;
     background-color: whitesmoke;
     color: black;
-    bottom: 1.5rem;
+    bottom: 2rem;
 }
 
 .photos-left:hover {
@@ -379,19 +379,10 @@ iv.catelog {
 
 .photos-right:hover {
     cursor: pointer;
-}
-
-.photos-left:hover {
-    opacity: 0.3;
-}
-
-.photos-right:hover {
-    opacity: 0.3;
 }
 
 .photos-left {
     opacity: 0;
-    
     position: absolute;
     width: 20%;
     top: 33%;
@@ -399,23 +390,45 @@ iv.catelog {
     height: 33%;
 }
 
+@media screen and (min-width:992px) {
+    .photos-right:hover {
+        opacity: 0.3;
+        cursor: pointer;
+    }
+    .photos-lefeTile {
+        opacity: 0.3;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width:992) {
+    .photos-right:hover {
+        opacity: 0;
+        cursor:none;
+    }
+    .photos-left:hover {
+        opacity: 0;
+        cursor:none;
+    }
+}
+
 .photos-right {
     opacity: 0;
-    
     position: absolute;
     width: 20%;
     top: 33%;
     right: 0%;
     height: 33%;
 }
-.photos-left img{
+
+.photos-left img {
     float: left;
     height: 100%;
-    width:auto;
+    width: auto;
 }
 
-.photos-right img{
-    float:right;
-   height: 100%;
-   width: auto;
+.photos-right img {
+    float: right;
+    height: 100%;
+    width: auto;
 }
