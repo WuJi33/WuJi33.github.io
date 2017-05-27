@@ -3,6 +3,7 @@ var lastTimeScrollTop;
 var fromAddr = "/";
 var photosInfoPos = [];
 var photosInfoPosphotosInfoNag = [];
+var touchDo=false;
 
 $(document).ready(function() {
     windowScroll();
@@ -21,6 +22,7 @@ $(document).ready(function() {
         $(".photos-bigshow").on("touchstart", function(e) {
             handSX = e.targetTouches[0].pageX;
             handSY = e.targetTouches[0].pageY;
+            touchDo=false;
         });
         $(".photos-bigshow").on("touchend",TouchEndDo);
         $.getJSON("/photoalbum/imginfo.json", function(rs) {
@@ -38,14 +40,18 @@ $(document).ready(function() {
 
 });
 var TouchEndDo = function(e) {
+    stopE(e);
     handEX = e.changedTouches[0].pageX;
     handEY = e.changedTouches[0].pageY;
     if(handEX-handSX>50 && Math.abs(handEY-handSY)<150){
         $(".photos-left").click();
+        touchDo=true;
     }
      if(handSX-handEX>50 && Math.abs(handEY-handSY)<150){
         $(".photos-right").click();
+        touchDo=true;
     }
+     
 };
 // Window Scroll
 var windowScroll = function() {
@@ -94,9 +100,14 @@ function dropdownmenu() {
         $("#dropdownmenu").hide();
     }
 }
-var closeImage = function() {
-    $(".photos-cover").hide();
+var closeImage = function(e) {
+    if(touchDo){
+        return;
+    }
     $(".photos-bigshow").hide();
+    $(".photos-cover").hide();
+    
+   
 }
 
 var openImage = function(trigger) {
@@ -128,17 +139,10 @@ var openImage = function(trigger) {
     });
 }
 var resize = function() {
-    $(".photos-bigshow").css("top", $(window).height() / 2 - $(".photos-bigshow").height() / 2);
-    if ($(window).width() > 992) {
-        $(".photos-bigshow").css("left", $(window).width() / 2 - $(".photos-bigshow").width() / 2);
-    } else {
-        $(".photos-bigshow").css("left", 0);
-    }
     $(".photos-left").css("font-size", $(".photos-left").height());
 }
 
 var changeImg = function(tr, dir, e) {
-    $(".photos-bigshow").hide();
     var img = $(tr).siblings("img").attr("name");
     var find = false;
     var imgFilName = "";
@@ -160,14 +164,16 @@ var changeImg = function(tr, dir, e) {
     })
     if (imgFilName != "") {
         openImage(imgFilName);
-    } else {
-        $(".photos-bigshow").show();
-    }
+    } 
+    stopE(e);
+
+}
+
+var stopE=function(e){
     e = e || window.event;
     if (e.stopPropagation) { //W3C阻止冒泡方法  
         e.stopPropagation();
     } else {
         e.cancelBubble = true; //IE阻止冒泡方法  
     }
-
 }

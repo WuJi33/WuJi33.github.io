@@ -68,7 +68,7 @@ body {
     background-color: #4183c4;
     height: 70px;
     width: 100%;
-    z-index: 1000;
+    z-index: 50;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     -webkit-transition: all 0.5s ease 0s;
     -moz-transition: all 0.5s ease 0s;
@@ -277,7 +277,7 @@ iv.catelog {
 }
 
 .category-brief {
-    z-index: 100000;
+    z-index: 49;
     padding-top: 10px;
     font-size: 1.5rem;
     color: gray;
@@ -285,7 +285,7 @@ iv.catelog {
 }
 
 .tools {
-    z-index: 100000;
+    z-index: 49;
     position: fixed;
     left: 1px;
     top: 75%;
@@ -336,20 +336,23 @@ iv.catelog {
 }
 
 .photos-cover {
-    z-index: 1000;
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
     background-color: black;
-    opacity: 0.8;
+    opacity: 0.7;
+    z-index: 100;
 }
 
 .photos-bigshow {
-    z-index: 1000;
+    z-index: 101;
     position: fixed;
     vertical-align: bottom;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
 }
 
 .photos-bigshow img {
@@ -357,21 +360,27 @@ iv.catelog {
 }
 
 .photo-bottomdesc:hover {
-    opacity: 0.7;
+    opacity: 1;
 }
 
 .photo-bottomdesc {
-    vertical-align: bottom;
     opacity: 0;
+    vertical-align: bottom;
     position: relative;
     width: 100%;
     height: auto;
     min-height: 2rem;
     font-size: 1.3rem;
-    background-color: whitesmoke;
+    background-color: white;
     color: black;
     bottom: 2rem;
 }
+@media (max-width:992px) {
+    .photo-bottomdesc {
+        opacity: 1;
+    }
+}
+
 
 .photos-left {
     opacity: 0;
@@ -396,11 +405,11 @@ iv.catelog {
 @media screen and (max-width:992) {
     .photos-right:hover {
         opacity: 0;
-        cursor:default;
+        cursor: default;
     }
     .photos-left:hover {
         opacity: 0;
-        cursor:default;
+        cursor: default;
     }
 }
 

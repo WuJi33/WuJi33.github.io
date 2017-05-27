@@ -3,7 +3,7 @@ tittle: WuJi33 Photo Album
 disqus: ordinary story
 layout: default
 ---
-<div class='row'>
+<div class='row photos-list'>
     <div class='hidden-xs hidden-sm col-md-1'></div>
     <div class='col-xs-12 col-md-10'>
     {% assign image_files = site.static_files | where: "image", true  %}
@@ -21,12 +21,13 @@ layout: default
     <div class='hidden-xs hidden-sm col-md-1'></div>
 </div>
 
-
-<div class='photos-cover' onclick="closeImage();" hidden></div>
-<div class='photos-bigshow' onclick="closeImage();"hidden >
-    <img src="/photoalbum/photos/123.jpg"/>
+<div class="photos-show-container">
+    <div class='photos-cover' onclick="closeImage();"hidden ></div> 
+    <div class='photos-bigshow' onclick="closeImage();" hidden >
+        <img src=""/>
     <div class="photos-left"  onclick="changeImg(this,1);"><img src="/material/leftArrow.png"/></div>
     <div class="photos-right" onclick="changeImg(this,3);"><img src="/material/rightArrow.png"/></div>
-    <div class='photo-bottomdesc'>
-    </div>
+    <div class='photo-bottomdesc'></div>
+</div>
+
 </div>
