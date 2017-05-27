@@ -93,3 +93,5 @@ defaults:
       path: "photoalbum/desc"
     values:
       imagedesc: true
+
+encoding: "utf-8"

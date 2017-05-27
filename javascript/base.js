@@ -124,7 +124,7 @@ var openImage = function(trigger) {
 
 
     photosInfoPos.forEach(function(ele) {
-        if (imgsrc.indexOf(ele.filename) > -1) {
+        if (imgsrc.indexOf(encodeURI(ele.filename)) > -1) {
             $(".photo-bottomdesc").text(ele.desc);
             newImg.prop("name", ele.basename);
         }
