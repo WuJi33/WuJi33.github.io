@@ -22,7 +22,8 @@
     "filename": "2017-5-27-roserose.jpg",
     "basename":"2017-5-27-roserose",
     "ext":"jpg",
-    "desc": "第一次给晨晨送的玫瑰花"
+    "desc": "第一次给晨晨送的玫瑰花",
+    "isHigh":true
 },{
     "filename": "2017-5-27-goat.jpg",
     "basename":"2017-5-27-goat",

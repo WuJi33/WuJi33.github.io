@@ -352,6 +352,7 @@ iv.catelog {
     vertical-align: bottom;
     top: 50%;
     left: 50%;
+    scroll-behavior: auto;
     transform: translateY(-50%) translateX(-50%);
 }
 
@@ -367,8 +368,10 @@ iv.catelog {
     opacity: 0;
     vertical-align: bottom;
     position: relative;
-    width: 100%;
+    width: calc(heigh);
     height: auto;
+    max-height: 100%;
+    max-width: 100%;
     min-height: 2rem;
     font-size: 1.3rem;
     background-color: white;
@@ -380,6 +383,7 @@ iv.catelog {
         opacity: 1;
     }
 }
+
 
 
 .photos-left {

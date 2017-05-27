@@ -8,9 +8,9 @@ layout: default
     <div class='col-xs-12 col-md-10'>
         {% assign image_files = site.static_files | where: "image", true %} 
         {% for imgfile in image_files | sort | reversed %}
-        <div class="photos-imgcell" onclick="openImage(this)">
+        <div class="photos-imgcell" onclick="openImage('{{imgfile.basename}}'')">
             <div class="photos-img">
-                <img src="{{ site.baseurl }}{{ imgfile.path }}" name="{{ imgfile.basename }}" />
+                <img id="{{imgfile.basename}}" src="{{ site.baseurl }}{{ imgfile.path }}" name="{{ imgfile.basename }}" />
             </div>           
         </div>
         {% endfor %}
@@ -20,7 +20,13 @@ layout: default
 
 <div class="photos-show-container">
     <div class='photos-cover' onclick="closeImage();" hidden></div>
-    <div class='photos-bigshow' onclick="closeImage();" hidden>
+    <div class='photos-bigshow-high' onclick="closeImage();" hidden>
+        <img src="" />
+        <div class="photos-left" onclick="changeImg(this,1);"><img src="/material/leftArrow.png" /></div>
+        <div class="photos-right" onclick="changeImg(this,3);"><img src="/material/rightArrow.png" /></div>
+        <div class='photo-bottomdesc'></div>
+    </div>
+    <div class='photos-bigshow-low' onclick="closeImage();" hidden>
         <img src="" />
         <div class="photos-left" onclick="changeImg(this,1);"><img src="/material/leftArrow.png" /></div>
         <div class="photos-right" onclick="changeImg(this,3);"><img src="/material/rightArrow.png" /></div>
