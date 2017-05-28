@@ -6,12 +6,12 @@ var photosInfoPosphotosInfoNag = [];
 var touchDo = false;
 var imgRatios = [];
 
-$(document).ready(function() {
+$(document).ready(function () {
     windowScroll();
-    $(".glyphicon-arrow-up").each(function() {
+    $(".glyphicon-arrow-up").each(function () {
         $(this).click(scrollToTop);
     })
-    $(".glyphicon-arrow-left").each(function() {
+    $(".glyphicon-arrow-left").each(function () {
         $(this).click(goBack);
     })
 
@@ -20,15 +20,15 @@ $(document).ready(function() {
         handSY = 0;
         handEX = 0;
         handEY = 0;
-        $(".photos-bigshow").on("touchstart", function(e) {
+        $(".photos-bigshow").on("touchstart", function (e) {
             handSX = e.targetTouches[0].pageX;
             handSY = e.targetTouches[0].pageY;
             touchDo = false;
         });
         $(".photos-bigshow").on("touchend", TouchEndDo);
-        $.getJSON("/photoalbum/imginfo.json", function(rs) {
+        $.getJSON("/photoalbum/imginfo.json", function (rs) {
             photosInfoPos = rs;
-            photosInfoPos.sort(function(a, b) {
+            photosInfoPos.sort(function (a, b) {
                 return a.basename > b.basename;
             });
             photosInfoNag = photosInfoPos.concat([]);
@@ -40,7 +40,7 @@ $(document).ready(function() {
     }
 
 });
-var TouchEndDo = function(e) {
+var TouchEndDo = function (e) {
     stopE(e);
     handEX = e.changedTouches[0].pageX;
     handEY = e.changedTouches[0].pageY;
@@ -55,8 +55,8 @@ var TouchEndDo = function(e) {
 
 };
 // Window Scroll
-var windowScroll = function() {
-    $(window).scroll(function() {
+var windowScroll = function () {
+    $(window).scroll(function () {
 
         var scrollPos = $(this).scrollTop();
 
@@ -69,14 +69,14 @@ var windowScroll = function() {
     });
 };
 
-var scrollToTop = function() {
+var scrollToTop = function () {
     $(window).scrollTop(0);
 }
-var goBack = function() {
+var goBack = function () {
     history.back();
 }
 
-var scrollHeaderEvent = function() {
+var scrollHeaderEvent = function () {
     if ($(window).scrollTop() > 100) {
         $('.headerblock').addClass('headerblock-scrolltop');
     } else {
@@ -84,7 +84,7 @@ var scrollHeaderEvent = function() {
     }
 }
 
-var scrollCatelogEvent = function() {
+var scrollCatelogEvent = function () {
     $(".CatelogBlock")
     if ($(window).scrollTop() > 70) {
         $('.site-header').addClass('site-header-nav-scrolled');
@@ -101,7 +101,7 @@ function dropdownmenu() {
         $("#dropdownmenu").hide();
     }
 }
-var closeImage = function(e) {
+var closeImage = function (e) {
     if (touchDo) {
         return;
     }
@@ -112,68 +112,51 @@ var closeImage = function(e) {
 
 }
 
-var openImage = function(basename) {
-    var imgsrc = "";
+var openImage = function (basename) {
     var desc = "";
-    var isHigh = true;
-    var imgCanvasH = $(".photos-bigshow-high");
-    var imgCanvasL = $(".photos-bigshow-low");
-    var imgEle = null;
+    var imgCanvas = $(".photos-bigshow");
     var ratio = 0;
-    imgsrc = $("#" + basename).prop("src");
-    imgRatios.forEach(function(ele) {
-        if (ele.basename == basename) {
-            ratio = ele.ratio;
-        }
-    })
-    if (ratio == 0) {
-        ratio = $("#" + basename).height() / $("#" + basename).width();
-        imgRatios.push({ basename: basename, ratio: ratio });
-    }
+    var imgsrc = $("#" + basename).prop("src");
 
-    photosInfoPos.forEach(function(ele) {
-        if (imgsrc.indexOf(encodeURI(ele.filename)) > -1) {
-            basename = ele.basename;
+    photosInfoPos.forEach(function (ele) {
+        if (ele.basename==basename) {
             desc = ele.desc;
-            isHigh = ele.isHigh;
         }
     }, this);
+    $(".photo-bottomdesc").text(desc);
+    imgCanvas.prop("name", basename);
 
-    if (isHigh) {
-        imgCanvasH.text(desc);
-        imgCanvasH.prop("name", ele.basename);
-        imgEle = imgCanvasH;
-    } else {
-        imgCanvasL.text(ele.desc);
-        imgCanvasL.prop("name", ele.basename);
-        imgEle = imgCanvasL;
-    }
-    imgEle = imgEle.find("img").first();
-    imgEle.prop("src", imgsrc);
+    // //获取图片比例以用于设置容器宽度-从缓存取，没有则重新计算
+    // imgRatios.forEach(function (ele) {
+    //     if (ele.basename == basename) {
+    //         ratio = ele.ratio;
+    //     }
+    // })
+    // if (ratio == 0) {
+    //     ratio = $("#" + basename).height() / $("#" + basename).width();
+    //     imgRatios.push({ basename: basename, ratio: ratio });
+    // }
 
-    imgEle.attr("onload", function() {
-        setTimeout(function() {
-            resize(ratio);
+    imgCanvas.prop("name", basename);
+    imgCanvas.fin("img").prop("src", imgsrc);
+
+    imgCanvas.fin("img").attr("onload", function () {
+        setTimeout(function () {
+            resize(imgRatio);
         }, 100);
     });
-    if (isHigh) {
-        imgCanvasH.show();
-        $("photos-cover").show();
-    } else {
-        imgCanvasL.show();
-        $("photos-cover").show();
-    }
+    imgCanvas.show();
+    $("photos-cover").show();
 }
-var resize = function(ratio) {
+var resize = function (ratio) {
     $(".photos-left").css("font-size", $(".photos-left").height());
-    if(ratio>($(window).height()/$(window).width()))
-    {
-        
+    if (imgRatio > ($(window).height() / $(window).width())) {
+
     }
 }
 
-var changeImg = function(tr, dir, e) {
-    var img = $(tr).siblings("img").attr("name");
+var changeImg = function (tr, dir, e) {
+    var imgBasename = $(tr).siblings("img").attr("name");
     var find = false;
     var nextBaseName = "";
     var ary = null;
@@ -183,11 +166,11 @@ var changeImg = function(tr, dir, e) {
     } else {
         inforList = photosInfoPos;
     }
-    inforList.forEach(function(item) {
-        if (find && imgFilName == "") {
+    inforList.forEach(function (item) {
+        if (find && nextBaseName == "") {
             nextBaseName = item.basename;
         }
-        if (item.basename == img) {
+        if (item.basename == imgBasename) {
             find = true;
         }
 
@@ -199,7 +182,7 @@ var changeImg = function(tr, dir, e) {
 
 }
 
-var stopE = function(e) {
+var stopE = function (e) {
     e = e || window.event;
     if (e.stopPropagation) { //W3C阻止冒泡方法  
         e.stopPropagation();
