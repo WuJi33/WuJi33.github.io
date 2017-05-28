@@ -35,8 +35,6 @@ $(document).ready(function () {
             photosInfoNag.reverse();
         });
 
-        window.onresize = resize;
-        resize();
     }
 
 });
@@ -105,10 +103,8 @@ var closeImage = function (e) {
     if (touchDo) {
         return;
     }
-    $(".photos-bigshow.high").hide();
+    $(".photos-bigshow").hide();
     $(".photos-cover").hide();
-    $(".photos-bigshow-low").hide();
-
 
 }
 
@@ -117,44 +113,38 @@ var openImage = function (basename) {
     var imgCanvas = $(".photos-bigshow");
     var ratio = 0;
     var imgsrc = $("#" + basename).prop("src");
+    var ratio=0;
+
+    imgRatios.forEach(function (ele) {
+        if (ele.basename == basename) {
+            ratio = ele.ratio;
+        }
+    })
+    if (ratio == 0) {
+        ratio = $("#" + basename).height() / $("#" + basename).width();
+        imgRatios.push({ basename: basename, ratio: ratio });
+    }
 
     photosInfoPos.forEach(function (ele) {
-        if (ele.basename==basename) {
+        if (ele.basename == basename) {
             desc = ele.desc;
         }
     }, this);
     $(".photo-bottomdesc").text(desc);
-    imgCanvas.prop("name", basename);
-
-    // //获取图片比例以用于设置容器宽度-从缓存取，没有则重新计算
-    // imgRatios.forEach(function (ele) {
-    //     if (ele.basename == basename) {
-    //         ratio = ele.ratio;
-    //     }
-    // })
-    // if (ratio == 0) {
-    //     ratio = $("#" + basename).height() / $("#" + basename).width();
-    //     imgRatios.push({ basename: basename, ratio: ratio });
-    // }
-
-    imgCanvas.prop("name", basename);
-    imgCanvas.fin("img").prop("src", imgsrc);
-
-    imgCanvas.fin("img").attr("onload", function () {
-        setTimeout(function () {
-            resize(imgRatio);
-        }, 100);
-    });
+    imgCanvas.children("img").prop("name", basename);
+    imgCanvas.children("img").prop("src", imgsrc);
+    Resize(ratio);
     imgCanvas.show();
-    $("photos-cover").show();
+    $(".photos-cover").show();
 }
-var resize = function (ratio) {
-    $(".photos-left").css("font-size", $(".photos-left").height());
-    if (imgRatio > ($(window).height() / $(window).width())) {
 
+var Resize=function(ratio){
+    if(ratio<=($(window).height()/$(window).width())){
+        $(".photos-bigshow").addClass("temp1");
+    }else{
+        $(".photos-bigshow").removeClass("temp1");
     }
 }
-
 var changeImg = function (tr, dir, e) {
     var imgBasename = $(tr).siblings("img").attr("name");
     var find = false;

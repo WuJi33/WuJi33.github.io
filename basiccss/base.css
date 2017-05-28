@@ -330,8 +330,23 @@ iv.catelog {
     top: 0;
     left: 0;
     background-color: black;
-    opacity: 0.7;
+    opacity: 0.9;
     z-index: 100;
+}
+
+
+.temp1{
+    width:100%;
+}
+@media (min-width:900px){
+    .temp1{
+        width:900px;
+    }
+}
+@media (min-width:1400px){
+    .temp1{
+        width:1200px;
+    }
 }
 
 .photos-bigshow {
@@ -342,17 +357,23 @@ iv.catelog {
     max-height: 100%;
     top: 50%;
     left: 50%;
-    scroll-behavior: auto;
     transform: translateY(-50%) translateX(-50%);
 }
-@media (min-width:992px){
+@media (min-width:900px){
     .photos-bigshow{
         max-width: 900px;
         min-height: 200px;
     }
 }
+@media (min-width:1300px){
+    .photos-bigshow{
+        max-width: 1200px;
+        min-height: 200px;
+    }
+}
 .photos-bigshow img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .photo-bottomdesc:hover {
@@ -362,16 +383,15 @@ iv.catelog {
 .photo-bottomdesc {
     opacity: 0;
     vertical-align: bottom;
-    position: relative;
-    width: calc(heigh);
+    position: absolute;
     height: auto;
-    max-height: 100%;
-    max-width: 100%;
+    max-height: 50%;
+    width: 100%;
     min-height: 2rem;
     font-size: 1.3rem;
     background-color: white;
     color: black;
-    bottom: 2rem;
+    bottom: 0rem;
 }
 @media (max-width:992px) {
     .photo-bottomdesc {
