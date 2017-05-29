@@ -5,7 +5,7 @@ var photosInfoPos = [];
 var photosInfoPosphotosInfoNag = [];
 var touchDo = false;
 var imgRatios = [];
-
+var isPC = false;
 $(document).ready(function () {
     windowScroll();
     $(".glyphicon-arrow-up").each(function () {
@@ -36,6 +36,8 @@ $(document).ready(function () {
         });
 
     }
+    window.onresize = Resize;
+    isPC = IsPC();
 
 });
 var TouchEndDo = function (e) {
@@ -113,8 +115,9 @@ var openImage = function (basename) {
     var imgCanvas = $(".photos-bigshow");
     var ratio = 0;
     var imgsrc = $("#" + basename).prop("src");
-    var ratio=0;
+    var ratio = 0;
 
+    imgCanvas.hide();
     imgRatios.forEach(function (ele) {
         if (ele.basename == basename) {
             ratio = ele.ratio;
@@ -124,7 +127,7 @@ var openImage = function (basename) {
         ratio = $("#" + basename).height() / $("#" + basename).width();
         imgRatios.push({ basename: basename, ratio: ratio });
     }
-
+    Resize(ratio);
     photosInfoPos.forEach(function (ele) {
         if (ele.basename == basename) {
             desc = ele.desc;
@@ -133,16 +136,69 @@ var openImage = function (basename) {
     $(".photo-bottomdesc").text(desc);
     imgCanvas.children("img").prop("name", basename);
     imgCanvas.children("img").prop("src", imgsrc);
-    Resize(ratio);
     imgCanvas.show();
     $(".photos-cover").show();
 }
 
-var Resize=function(ratio){
-    if(ratio<=($(window).height()/$(window).width())){
-        $(".photos-bigshow").addClass("temp1");
-    }else{
-        $(".photos-bigshow").removeClass("temp1");
+var Resize = function (ratio) {
+    if (!ratio) {
+        ratio = $(".photos-bigshow").children("img").height() / $(".photos-bigshow").children("img").width();
+    }
+    if (!isPC) {
+        if (ratio <= ($(window).height() / $(window).width())) {
+            //图片比浏览器可视角度扁时
+            $(".photos-bigshow").addClass("temp1OnPhone");
+            $(".photos-bigshow").removeClass("temp2OnPhone");
+            $(".photos-bigshow").css("height", $(window).width() * ratio);
+            $(".photos-bigshow").css("width", "");
+        } else {
+            $(".photos-bigshow").addClass("temp2OnPhone");
+            $(".photos-bigshow").removeClass("temp1OnPhone");
+            $(".photos-bigshow").css("width", $(window).height() / ratio);
+            $(".photos-bigshow").css("height", "");
+
+        }
+    } else {
+        if (ratio <= ($(window).height() / $(window).width())) {
+            //图片比浏览器可视角度扁时
+            var wWidth = $(window).width();
+            var baseW = 0;
+            var w = 0;
+            if (wWidth >= 2800) {
+                baseW = 0.5 / ratio;
+            } else if (wWidth >= 1400) {
+                baseW = 1200;
+            } else if (wWidth >= 900) {
+                baseW = 900;
+            } else {
+                baseW = wWidth;
+            }
+
+            $(".photos-bigshow").css("height", baseW * ratio);
+            $(".photos-bigshow").css("width", baseW);
+        } else {
+            var wHeight = $(window).height();
+            var baseH = 0;
+            var shouldCheck = true;
+            if (wHeight >= 1800) {
+                baseH = 0.5 * ratio;
+            } else if (wHeight >= 900) {
+                baseH = 900;
+            } else if (wHeight >= 700) {
+                baseH = 700;
+            } else {
+                baseH = wHeight;
+                shouldCheck = false;
+            }
+
+            if (shouldCheck) {
+                if (baseH * ratio / $(window).width() > 0.7) {
+                    baseH *= 0.85;
+                }
+            }
+            $(".photos-bigshow").css("width", baseH / ratio);
+            $(".photos-bigshow").css("height", baseH);
+        }
     }
 }
 var changeImg = function (tr, dir, e) {
@@ -179,4 +235,18 @@ var stopE = function (e) {
     } else {
         e.cancelBubble = true; //IE阻止冒泡方法  
     }
+}
+var IsPC = function () {
+    var userAgentInfo = navigator.userAgent;
+    var Agents = ["Android", "iPhone",
+        "SymbianOS", "Windows Phone",
+        "iPad", "iPod"];
+    var flag = true;
+    for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = false;
+            break;
+        }
+    }
+    return flag;
 }
