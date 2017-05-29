@@ -6,6 +6,7 @@ var photosInfoPosphotosInfoNag = [];
 var touchDo = false;
 var imgRatios = [];
 var isPC = false;
+var curRatios=0;
 $(document).ready(function () {
     windowScroll();
     $(".glyphicon-arrow-up").each(function () {
@@ -142,7 +143,7 @@ var openImage = function (basename) {
 
 var Resize = function (ratio) {
     if (!ratio) {
-        ratio = $(".photos-bigshow").children("img").height() / $(".photos-bigshow").children("img").width();
+        ratio=curRatios;
     }
     if (!isPC) {
         if (ratio <= ($(window).height() / $(window).width())) {
